@@ -8,11 +8,11 @@ An example script on how to use the code is provided in which the neural network
 
 To compile the example you need a fortran compiler as well as an installation of Blas/LAPACK. 
 Using CMake the code can be compiled with the following commands.
-Two CMake flags are provided, that allow to compile with or without OpenMP parallelization and with the intel or gnu compiler.
+Two CMake flags are provided, that allow to compile with or without debug flags and with the intel or gnu compiler.
 
 ```bash
 mkdir build
 cd build
-cmake -DINTEL=OFF .. # compile with gfortran
+cmake -DDEBUG=ON -DINTEL=OFF .. # compile with gfortran and debug flags
 make
 ```
