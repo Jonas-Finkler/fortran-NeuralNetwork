@@ -13,6 +13,6 @@ Two CMake flags are provided, that allow to compile with or without OpenMP paral
 ```bash
 mkdir build
 cd build
-cmake -DOPENMP=ON -DINTEL=OFF .. # compile with OpenMP parallelization and gfortran
+cmake -DINTEL=OFF .. # compile with gfortran
 make
 ```
