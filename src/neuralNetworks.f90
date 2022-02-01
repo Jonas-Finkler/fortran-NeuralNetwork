@@ -78,7 +78,7 @@ contains
         case ('l') ! linear
             out = 1._dp
         case ('t') ! tanh
-            out = 1._dp / cosh(in)**2
+            out = 1._dp - tanh(in)**2
         case ('p') ! softplus
             out = 1._dp / (1._dp + exp(-1._dp * in))
         case ('r') ! relu
@@ -217,8 +217,13 @@ contains
         type(neuralNetwork), intent(inout) :: nn
         real(dp), intent(in) :: inp(nn%nInp)
         real(dp), intent(out) :: out(nn%nOut)
+        real(dp) :: tmpInp(nn%nInp, 1), tmpOut(nn%nOut, 1)
 
-        call nn_forwardBatch(nn, 1, inp, out)
+        tmpInp(:,1) = inp
+
+        call nn_forwardBatch(nn, 1, tmpInp, tmpOut)
+
+        out = tmpOut(:,1)
 
     end subroutine nn_forward
 
