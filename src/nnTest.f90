@@ -91,7 +91,7 @@ program nnTest
 
         ! check nn derivative of weights with finitie difference
         print*, sum(dParams*dxParams) / sqrt(sum(dParams**2)), '?=', sum(out2 - out1) / sqrt(sum(dParams**2))
-        print*,
+        print*, " "
 
     end if
 
